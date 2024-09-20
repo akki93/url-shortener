@@ -26,15 +26,18 @@ jobs:
         uses: hashicorp/setup-terraform@v1
       
       - name: Terraform init and validate
+        working-directory: ../iac_tf
         run: |
             terraform init
             terraform fmt
             terraform validate
       
       - name: Terraform plan
+        working-directory: ../iac_tf
         run: |
             terraform plan
       
       - name: Terraform Apply
+        working-directory: ../iac_tf
         run: |
           terraform apply -auto-approve
