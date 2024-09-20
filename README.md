@@ -50,18 +50,17 @@ Make sure you have the following installed on your system:
 
    ```bash
    git clone https://github.com/akki93/url-shortener.git
-   ```
+   
 2. Navigate to the project directory:
    
   ```bash
   cd url-shortener/frontend
-  ```
+```
+
 3. Install dependencies:
 4. 
    ```bash
    Install the dependencies:
   ```
-  ```
+```
 4. Use ```npm run dev``` to start Application in Development environment  or Browser
-   ```bash
-  ```npm run dev
