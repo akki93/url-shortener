@@ -1,16 +1,12 @@
 variable "public_subnets" {
-  default = {
-    "public-subnet-1" = 1
-    "public-subnet-2" = 2
-    "public-subnet-3" = 3
-  }
+  description = "List of Public Subnet CIDR blocks"
+  type        = list(string)
+  default     = ["10.1.4.0/22", "10.1.8.0/22"]
 }
 
 variable "private_subnets" {
-  default = {
-    "private-subnet-1" = 1
-    "private-subnet-2" = 2
-    "private-subnet-3" = 3
-  }
+  description = "List of Private Subnet CIDR blocks"
+  type        = list(string)
+  default     = ["10.1.10.0/22", "10.1.12.0/22"]
 }
 
