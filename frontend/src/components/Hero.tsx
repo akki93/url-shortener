@@ -13,7 +13,7 @@ const Hero = () => {
                 className="w-1/2 px-4 py-2 text-black rounded-lg border-2 border-gray-300 focus:border-blue-600 focus:ring focus:ring-blue-200 transition duration-300"
                 placeholder="Enter your URL here"
             />
-              <button className="px-6 py-2 bg-black text-black font-semibold text-white rounded-lg hover:bg-blue-600 transition">
+              <button className="px-6 py-2 bg-black font-semibold text-white rounded-lg hover:bg-blue-600 transition">
                 Shorten URL
               </button>
             </div>
