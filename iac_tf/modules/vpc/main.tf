@@ -19,7 +19,7 @@ resource "aws_subnet" "public_subnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "app-subnet-public-${each.key}"
+    Name = "app-public-${each.key}"
     Tier = "public"
   }
 }
@@ -31,7 +31,7 @@ resource "aws_subnet" "private_subnet" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "app-subnet-private-${each.key}"
+    Name = "app-private-${each.key}"
     Tier = "private"
   }
 }
