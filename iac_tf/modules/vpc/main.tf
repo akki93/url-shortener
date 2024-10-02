@@ -55,7 +55,7 @@ resource "aws_route_table" "private_rtb" {
 
   route {
     cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat_gateway.id
+    gateway_id = aws_nat_gateway.nat_gateway.id
   }
   tags = {
     Name = "app-private-rtb"
@@ -84,7 +84,7 @@ resource "aws_internet_gateway" "internet_gateway" {
   }
 }
 
-resource "aws_eip" "nat_gateway_eip" {
+resource "aws_eip" "gateway_eip" {
   depends_on = [aws_internet_gateway.internet_gateway]
   tags = {
     Name = "app-nat-gw-eip"
