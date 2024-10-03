@@ -84,12 +84,12 @@ resource "aws_internet_gateway" "internet_gateway" {
   }
 }
 
-resource "aws_eip" "gateway_eip" {
-  depends_on = [aws_internet_gateway.internet_gateway]
-  tags = {
-    Name = "app-nat-gw-eip"
-  }
-}
+# resource "aws_eip" "gateway_eip" {
+#   depends_on = [aws_internet_gateway.internet_gateway]
+#   tags = {
+#     Name = "app-nat-gw-eip"
+#   }
+# }
 
 #resource "aws_nat_gateway" "nat_gateway" {
 #  depends_on    = [aws_subnet.public_subnet]
