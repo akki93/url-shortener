@@ -8,6 +8,10 @@ module "ec2" {
   sg_id = module.vpc.sg_id
 }
 
+module "dynamodb" {
+  source = "./modules/dynamodb"
+}
+
 module "api_gw" {
   source = "./modules/api_gw"
   api_gateway_name = "url-shortener-api"
