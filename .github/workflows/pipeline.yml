@@ -1,0 +1,43 @@
+name: Terraform Deployment
+
+on:
+  push:
+    branches: [ "main", "dev", "prod" ]
+
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+jobs:
+  aws-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Git Repository
+        uses: actions/checkout@v3.0.0
+        with:
+          fetch-depth: 0
+      
+      - name:	Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+      
+      - name: Terraform init and validate
+        working-directory: ./iac_tf
+        run: |
+            terraform init
+            terraform fmt
+            terraform validate
+      
+      - name: Terraform plan
+        working-directory: ./iac_tf
+        run: |
+            terraform plan
+      
+      - name: Terraform Apply
+        working-directory: ./iac_tf
+        run: |
+          terraform apply -auto-approve
