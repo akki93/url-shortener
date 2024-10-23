@@ -10,8 +10,4 @@ resource "aws_dynamodb_table" "url-shortener-table" {
     type = "S"
   }
 
-  attribute {
-    name = "original_url"
-    type = "S"
-  }
 }
