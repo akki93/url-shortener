@@ -28,7 +28,7 @@ resource "aws_api_gateway_integration" "url_integration" {
   resource_id = aws_api_gateway_resource.url.id
   http_method = aws_api_gateway_method.get_url_method.http_method
   type        = "HTTP_PROXY"
-  uri         = "http://your-flask-app-load-balancer-or-ec2-url"  # Update this with your service URL
+  uri         = var.ec2_url
 
   integration_http_method = "ANY"
 }

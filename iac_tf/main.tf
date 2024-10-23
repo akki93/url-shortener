@@ -15,6 +15,7 @@ module "dynamodb" {
 module "api_gw" {
   source = "./modules/api_gw"
   api_gateway_name = "url-shortener-api"
+  ec2_url = module.ec2.ec2_url
 }
 
 module "elasticache" {
@@ -22,5 +23,5 @@ module "elasticache" {
   redis_instance_type = "cache.t2.micro"
   redis_cluster_id = "url-shortener-redis-cluster"
   redis_subnet_group = "url-shortener-redis-subnet-group"
-  redis_subnet_ids = []
+  redis_subnet_ids = [module.vpc.private_subnet[0]]
 }
